@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Videopiano</title>
+	<style type="text/css">
+		html, body{
+			padding: 0;
+			margin: 0;
+			background: red;
+		}
+		#video{
+			width: 100%;
+			position: absolute;
+			left: 0;
+		}
+
+		#debug{
+			position: absolute;
+			bottom: 0;
+			right:  30px;
+			color: white;
+			z-index: 10;
+
+		}
+	</style>
+	<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+</head>
+<body>
+	<div id="debug"></div>
+	<video w autoplay="autoplay" id="video">
+		Your Browser does not support the video element
+</video>
+
+<script type="text/javascript">
+	
+	var mapping = {};
+	mapping.w = screen.width;
+	mapping.w = 1328;
+	mapping.top = -280;
+	mapping.speed = 0.5;
+
+	var videos = [];
+
+	   function getJSON(url, qs_params) {
+              function buildQueryString(params) {
+                return Object.entries(params).map(d => `${d[0]}=${d[1]}`).join('&');
+              }
+
+              return new Promise((resolve, reject) => {
+                const qs = qs_params ? '?' + buildQueryString(qs_params) : '';
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', `${url}${qs}`);
+
+                xhr.onload = function() {
+                  if (xhr.status >= 200 && xhr.status < 400) {
+                    resolve(JSON.parse(xhr.responseText));
+                  } else {
+                    resolve(xhr.responseText);
+                  }
+                };
+                xhr.onerror = () => reject(xhr.statusText);
+                xhr.send();
+              });
+            }
+
+function playRandom(){
+	var item = videos[Math.floor(Math.random()*videos.length)];
+	document.getElementById("video").src = "./data/video/" + item
+}
+
+
+  let video = document.querySelector('video');
+  
+        // Set the default playing speed
+        video.defaultPlaybackRate = mapping.speed;
+  
+  
+        function video_change_speed() {
+  
+            video.playbackRate = mapping.speed;
+            $("#debug").html( JSON.stringify(mapping));
+        }
+  
+
+        function updateData(){
+
+            getJSON("data.php", { output: "json"})
+               .then(data => {
+                 
+                    data.forEach(function(d){
+                        
+                        videos.push(d);
+                            
+                    });
+                    
+                    updateSize();
+                    playRandom();
+                    video_change_speed();
+
+
+
+               });
+  
+        }
+
+        updateData();
+
+        function updateSize(){
+
+        	var w = mapping.w + "px"
+			var top = mapping.top + "px"
+
+		  	$("#video").css({"width":w,"top":top});
+		  	$("#debug").html( JSON.stringify(mapping));
+
+        }
+
+		window.addEventListener('keyup', function(event) {
+
+		  if (event.keyCode === 13) {
+		    document.getElementById("video").play();
+		  }
+
+		  if (event.keyCode === 49) {
+		  	mapping.w++;
+		  	updateSize();
+		  }
+
+		  if (event.keyCode === 50) {
+		  	mapping.w--;
+		  	updateSize();
+		  }
+
+
+		  if (event.keyCode === 51) {
+		  	mapping.top++;
+		  	updateSize();
+		  }
+
+		  if (event.keyCode === 52) {
+		  	mapping.top--;
+		  	updateSize();
+		  }
+
+		  if (event.keyCode === 53) {
+		  	mapping.speed += 0.1;
+		  	video_change_speed();
+		  }
+
+		  if (event.keyCode === 54) {
+		  	mapping.speed -= 0.1;
+		  	video_change_speed();
+		  }
+
+		});
+
+
+
+</script>
+</body>
+</html>
