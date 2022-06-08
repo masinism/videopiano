@@ -7,5 +7,5 @@ playful animated piano
 * Raspberry Pi 3 or faster
 
 # Use
-* For non-commercial use only.
+* Free for home use only.
 * Contact www.masinism.ee for commercial proposals.
