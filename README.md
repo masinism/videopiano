@@ -11,8 +11,8 @@ Videopiano is a playful animated piano installation that makes it easy to start 
 * included videoplayer for playalong experience
 
 # Use
-* Free for home use only.
-* Contact www.masinism.ee for commercial proposals.
+* Free for home use.
+* Contact www.masinism.ee for commercial purposes.
 
 # Credits
 Original concept from 2009 by Timo Toots and Eve Arpo. Developed further in 2020 by Masinism.
