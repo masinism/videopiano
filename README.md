@@ -11,11 +11,20 @@ For public exhibits the rights to present music must be organized by the venue. 
 * video projector
 * Raspberry Pi 3 or faster
 
-# Software
-There are several software you can play on Videopiano. 
+# Possiblities
+There are several ways to use Videopiano.
 
-* Linthesia for gamified experience
-* included videoplayer for playalong experience
+## Gamified videopiano
+* use MIDI keyboard
+* use software Linthesia with your MID files
+
+## Playalong videopiano for home use
+* use real piano, electric piano etc
+* use included videoplayer for online video recordings
+
+## Playalong videopiano for venues
+* find real piano
+* we prepare new music as videofiles
 
 # Use
 * Free for home use.
