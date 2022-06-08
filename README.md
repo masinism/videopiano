@@ -12,6 +12,8 @@ For public exhibits the rights to present music must be organized by the venue. 
 * Raspberry Pi 3 or faster
 
 # Software
+There are several software you can play on Videopiano. 
+
 * Linthesia for gamified experience
 * included videoplayer for playalong experience
 
