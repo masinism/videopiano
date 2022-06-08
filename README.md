@@ -8,4 +8,4 @@ playful animated piano
 
 # Use
 * For non-commercial use only.
-* Contact www.masinism.ee for commercial offers.
+* Contact www.masinism.ee for commercial proposals.
