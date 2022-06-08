@@ -8,7 +8,7 @@ playful animated piano
 
 # Software
 * use Linthesia for gamefied experience
-* use videoplayer for playalong experience
+* use included videoplayer for playalong experience
 
 # Use
 * Free for home use only.
