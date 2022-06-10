@@ -1,4 +1,4 @@
-![Videopiano prototype](images/videopiano_prototype.jpg)
+![Videopiano prototype](doc/images/videopiano_prototype.jpg)
 
 # Videopiano
 Videopiano is a playful animated piano installation that makes it easy to start playing music without any musical knowledge. Videopiano is an original concept from 2009 by Timo Toots and Eve Arpo. Since 2020 it is being developed as open source project.
