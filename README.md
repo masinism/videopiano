@@ -30,6 +30,6 @@ There are several ways to use Videopiano.
 * use included videoplayer for online video recordings
 
 # License
-* Open source / License soon
+* Open source / license soon
 * Please hire us for customizations, installations for exhibitions etc. [www.masinism.ee.](https://www.masinism.ee)
 
