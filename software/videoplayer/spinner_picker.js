@@ -161,7 +161,7 @@ class SpinnerPicker {
             if(key == 83 || key == 40) {
                 this.scrollInteraction({deltaY: -1, ne: true});
             } else if(key == 87 || key == 38) {
-                this.scrollInteraction({deltaY: 1});
+                this.scrollInteraction({deltaY: 1, ne: true});
             }
 			else if(key == 	13) {
 				play(this.valueHandler(this.currentIndex));

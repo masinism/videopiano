@@ -73,7 +73,6 @@ function key_check(event)
     .catch(error => console.log(error));
 
     function create_menu(items){
-      console.log(items)
         new SpinnerPicker(
             document.getElementById("song-menu"), 
             function(index) {
@@ -91,6 +90,7 @@ function key_check(event)
             },
             function(index) { }
         );
+        document.getElementById('song-menu').focus();
     }
 
     function handle_backspace(){
@@ -114,7 +114,6 @@ function key_check(event)
     }
 
     function play(i) { 
-      console.log(i)
       vid.src = i.url;
       vid.type = "video/mp4";
       vid.width = 1280
