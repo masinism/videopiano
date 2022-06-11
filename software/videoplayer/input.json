@@ -1,17 +1,20 @@
-[{
-		"url": "Philip Glass - Mad Rush [Piano Tutorial] (Synthesia).mp4",
+[
+	{
+		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia).mp4",
 		"type": "video/mp4",
-		"author": "Philip Glass",
+		"composer": "Philip Glass",
 		"track_name": "Mad Rush",
-		"mapping_x": 320,
-		"mapping_y": 176
+		"credits":"Youtube @EdmondTHui",
+		"mapping_piano_top_y": 320,
+		"first_note_time": 0
 	},
 	{
 		"url": "https://www.videopiano.ee/test/Twin Peaks Theme – Opening – Piano tutorial [Easy Piano] [tZgIgtsi33A]-1649976932.mp4",
 		"type": "video/mp4",
-		"author": "Twin Peaks",
+		"composer": "Twin Peaks",
 		"track_name": "Opening Theme",
-		"mapping_x": 1280,
-		"mapping_y": 720
+		"credits":"Youtube @Easy Piano For All",
+		"mapping_piano_top_y": 320,
+		"first_note_time": 0
 	}
 ]
