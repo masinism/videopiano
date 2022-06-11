@@ -7,6 +7,13 @@
 		"credits": ""
 	},
 	{
+		"url": "https://www.videopiano.ee/test/mid/Opening_by_Philip_Glass_Urtext.mid",
+		"type": "audio/midi",
+		"composer": "Philip_Glass",
+		"track_name": "Opening",
+		"credits": ""
+	},
+	{
 		"url": "https://www.videopiano.ee/test/mid/Spiegel_am_Spiegel_Arvo_Part_piano.mid",
 		"type": "audio/midi",
 		"composer": "Arvo Part",
