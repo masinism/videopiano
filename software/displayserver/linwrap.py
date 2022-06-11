@@ -96,7 +96,7 @@ reactor.spawnProcess(chromium, "chromium-browser",
                      args=['chromium-browser', "--simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'",
                            "--kiosk",  "--touch-events=enabled", "--disable-pinch", "--noerrdialogs",
                            "--disable-session-crashed-bubble", "--disable-component-update", "--overscroll-history-navigation=0",
-                           "--disable-features=Translate", "--app=http://localhost:3000"],
+                           "--disable-features=Translate", "--app=http://localhost:3000/gui"],
                      env=os.environ)
 
 
