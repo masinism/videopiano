@@ -1,7 +1,7 @@
 ![Videopiano prototype](doc/videopiano_prototype.jpg)
 
 # Videopiano
-Videopiano is a playful animated piano installation that makes it easy to start playing music without any musical knowledge. Videopiano is an original concept from 2009 by Timo Toots and Eve Arpo. Since 2020 it is being developed as open source project.
+Videopiano is a playful animated piano installation that makes it easy to start playing music without any musical knowledge. Videopiano is an original concept from 2009 by Timo Toots and Eve Arpo. Since 2020 it is being developed further.
 
 Hire us for customizations, installations for exhibitions at [Masinism Studio](https://www.masinism.ee)
 
@@ -30,7 +30,7 @@ There are several ways to use Videopiano.
 * use included videoplayer for online video recordings
 
 # License
-* Open source / license soon
+* Free for personal home use.
 * Hire us for customizations, installations for exhibitions at [Masinism Studio](https://www.masinism.ee)
 
 
