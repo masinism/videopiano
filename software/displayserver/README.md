@@ -1,1 +1,3 @@
-Display server
+# Videopiano Display server
+
+Controls Raspberry Pi
