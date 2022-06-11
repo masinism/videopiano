@@ -1,5 +1,12 @@
 [
 	{
+		"url": "https://www.videopiano.ee/test/mid/Hoit Koia.mid",
+		"type": "audio/midi",
+		"composer": "Gertrud Renkvist s. 1973 Borrby",
+		"track_name": "Hoit Koia (Valge Mullikas)",
+		"credits": ""
+	},
+	{
 		"url": "https://www.videopiano.ee/test/mid/Spiegel_am_Spiegel_Arvo_Part_piano.mid",
 		"type": "audio/midi",
 		"composer": "Arvo Part",
@@ -47,6 +54,16 @@
 		"composer": "Burt Bacharach, Hal David",
 		"track_name": "Raindrops keep falling on my head",
 		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/Spiegel_am_Spiegel_Arvo_Part_piano_ffmpeg.mp4",
+		"type": "video/mp4",
+		"composer": "Arvo Pärt",
+		"track_name": "Spiegel am Spiegel",
+		"credits": "Self made",
+		"video_height":1080,
+		"mapping_piano_top_y": 852,
+		"first_note_time": 0
 	},
 	{
 		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia) [fIgVBRL0Jx4]-1649959360.mp4",
