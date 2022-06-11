@@ -63,7 +63,10 @@ class LinthesiaResource(resource.Resource):
 
         if action == 'start':
             if self.protocol:
-                self.protocol.transport.signalProcess('KILL')
+                try:
+                    self.protocol.transport.signalProcess('KILL')
+                except:
+                    pass
             self.protocol = LinthesiaProtocol()
             midi_url = request.args[b'url'][0].decode("utf-8")
             d = defer.Deferred()
