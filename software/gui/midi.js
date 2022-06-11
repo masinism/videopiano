@@ -78,6 +78,26 @@ function gotMIDImessage(messageData) {
     console.log(keyStates);
     
     console.log(messageData.data);
+
+    if(messageData.data[0]==144 && messageData.data[1]==21){
+        userInput("1");
+        checkTwoKeyPress(noteid);
+    }       
+    if(messageData.data[0]==144 && messageData.data[1]==22){
+        userInput("2");
+    }      
+    if(messageData.data[0]==144 && messageData.data[1]==23){
+        userInput("3");
+    } 
+    if(messageData.data[0]==144 && messageData.data[1]==24){
+        userInput("4");
+    } 
+    if(messageData.data[0]==144 && messageData.data[1]==25){
+        userInput("5");
+    } 
+    if(messageData.data[0]==144 && messageData.data[1]==26){
+        userInput("6");
+    } 
     if(messageData.data[0]==144 && messageData.data[1]==105){
         userInput("7");
     }
@@ -87,15 +107,8 @@ function gotMIDImessage(messageData) {
     if(messageData.data[0]==144 && messageData.data[1]==108){
         userInput("9");
         checkTwoKeyPress(noteid);
-
     }
-    if(messageData.data[0]==144 && messageData.data[1]==21){
-        userInput("1");
-        checkTwoKeyPress(noteid);
-    }       
-    if(messageData.data[0]==144 && messageData.data[1]==25){
-        userInput("2");
-    }          
+       
     var newItem = document.createElement('li');
     newItem.appendChild(document.createTextNode(messageData.data));
     dataList.appendChild(newItem);
@@ -111,11 +124,11 @@ document.addEventListener('keyup', function(event) {
 
     switch(event.key){
         case "1":  gotMIDImessage({data:[144,21,125]}); break;
-        case "2":  gotMIDImessage({data:[144,25,125]}); break;
-        case "3":  gotMIDImessage({data:[144,25,125]}); break;
-        case "4":  gotMIDImessage({data:[144,25,125]}); break;
+        case "2":  gotMIDImessage({data:[144,22,125]}); break;
+        case "3":  gotMIDImessage({data:[144,23,125]}); break;
+        case "4":  gotMIDImessage({data:[144,24,125]}); break;
         case "5":  gotMIDImessage({data:[144,25,125]}); break;
-        case "6":  gotMIDImessage({data:[144,25,125]}); break;
+        case "6":  gotMIDImessage({data:[144,26,125]}); break;
         case "7":  gotMIDImessage({data:[144,105,125]}); break;
         case "8":  gotMIDImessage({data:[144,107,125]}); break;
         case "9":  gotMIDImessage({data:[144,108,125]}); break;

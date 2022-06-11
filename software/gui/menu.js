@@ -4,8 +4,15 @@ var currentMenu = 0;
 
 var menuSongs;
 
+function menuGetCurrentItem(){
+
+    return playList[currentMenu];
+
+}
+
+
   // load stuffz:
-  fetch('https://raw.githubusercontent.com/masinism/videopiano/main/software/videoplayer/input.json')
+  fetch('input.json')
     .then(response => response.json())
     .then(data => {
       for (var key in data) {
@@ -49,6 +56,9 @@ var menuSongs;
     }
 
     function create_menu(items){
+        
+        positionMenu();
+
         menuSongs = new SpinnerPicker(
             document.getElementById("song-menu"), 
             function(index) {
@@ -66,5 +76,13 @@ var menuSongs;
             },
             function(index) { }
         );
-        document.getElementById('song-menu').focus();
+        // document.getElementById('song-menu').focus();
+    }
+
+    function positionMenu(){
+        
+        document.getElementById('song-menu').style.top = conf.projectionAreaTop + "px";
+        document.getElementById('song-menu').style.height = (conf.projectionPianoTop-conf.projectionAreaTop) + "px";
+
+
     }

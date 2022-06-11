@@ -28,6 +28,14 @@
 		#midi-data{
 			display: none;
 		}
+		
+		#song-menu{
+			position: absolute;
+			top: 0px;
+			left:0px;
+			width: 100%;
+			height:200px;
+		}
 
 	</style>
 	<script
@@ -48,12 +56,18 @@
 	  <canvas id="song-menu" style="height: 150px; width: 100%; background: white; filter: invert(100%)"></canvas>
 
 	<div id="debug"></div>
-	<video w autoplay="autoplay" id="video">
+	<video loop autoplay="autoplay" id="video">
 		Your Browser does not support the video element
-</video>
+	</video>
 
 <script type="text/javascript">
 	
+	var conf = {};
+
+conf.projectionAreaTop = 100;
+conf.projectionPianoTop = 300;
+conf.projectionPianoBottom = 820;
+
 	var mapping = {};
 	mapping.w = screen.width;
 	mapping.w = 1328;
@@ -61,6 +75,8 @@
 	mapping.speed = 0.5;
 
 	var videos = [];
+
+	var states = {"activeOutput":""};
 
 
 
@@ -70,20 +86,8 @@ function playRandom(){
 }
 
 
-  let video = document.querySelector('video');
-  
-        // Set the default playing speed
-        video.defaultPlaybackRate = mapping.speed;
-  
-  
-        function video_change_speed() {
-  
-            video.playbackRate = mapping.speed;
-            $("#debug").html( JSON.stringify(mapping));
-        }
   
 
-		// sendCmdDisplayServer({cmd:"start"});
 
 
 
@@ -120,6 +124,34 @@ function playRandom(){
 
         }
 
+		function startSynthesia(d){
+		
+			var get = {};
+			get.cmd = "start";
+			get.url = d.url;
+			get.mapping_piano_top_y = d.mapping_piano_top_y;
+
+			states.activeOutput = "synthesia";
+			sendCmdDisplayServer(getParams);
+		}
+
+		function syntesiaStop(){
+			var get = {};
+			get.cmd = "stop";
+			states.activeOutput = "";
+			sendCmdDisplayServer(getParams);
+		}
+
+		function startMusic(){
+		
+			var d = menuGetCurrentItem();
+			if(d.type=="video/mp4"){
+				videoPlay(d);
+			} else if (d.type=="audio/midi") {
+				startSynthesia(d);
+			}
+
+		}
 				
 		function userInput(id){
 
@@ -129,20 +161,43 @@ function playRandom(){
 
 			switch(id){
 				case "1":
-					menuControl("down");
+					if(states.activeOutput==""){
+						menuControl("down");
+					}
 					break;
 				case "2":
-					menuControl("up");
+					if(states.activeOutput==""){
+						menuControl("up");
+					}
 					break;
 				case "3":
+					if(states.activeOutput=="video"){
+						videoStop();
+					} else if(states.activeOutput=="synthesia"){
+						syntesiaStop();
+					}
 					break;
+				case "7":
+					if(states.activeOutput==""){
+						startMusic();
+					}
+					break;  
 				case "8":
-					menuControl("up");
+					if(states.activeOutput==""){
+						menuControl("up");
+					}
 					break;  
 				case "9":
-					menuControl("down");
+					if(states.activeOutput==""){
+						menuControl("down");
+					}
 					break;                    
 				case "1+9":
+					if(states.activeOutput=="video"){
+						videoStop();
+					} else if(states.activeOutput=="synthesia"){
+						syntesiaStop();
+					}
 					break;   
 				default:
 					console.log("Trigger ID not found" + id);         
@@ -152,11 +207,12 @@ function playRandom(){
 		}
 
 
-
+		document.getElementById("")
 
 
 </script>
 <script src='midi.js'></script>
+	<script src='video.js'></script>
 
 </body>
 </html>
