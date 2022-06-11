@@ -98,9 +98,9 @@
 
 	<div class="hiders" id="top_hider"></div>
 
-	<div class="keyHints keyHint1" style="right:0px;top:0px; background-color:#0DCAF2;"></div>
-	<div class="keyHints keyHint2" style="right:423px;top:0px; background-color:#94F20D;"></div>
-	<div class="keyHints keyHint3" style="right:446px;top:0px; background-color:#F20D0D;"></div>
+	<div class="keyHints keyHint1" style="top:0px; background-color:#0DCAF2;"></div>
+	<div class="keyHints keyHint2" style="top:0px; background-color:#94F20D;"></div>
+	<div class="keyHints keyHint3" style="top:0px; background-color:#F20D0D;"></div>
 
 <section id="midi-data">  
 		<ul></ul>
@@ -139,8 +139,8 @@ var list=document.querySelectorAll(".keyHints");
 for (let i = 0; i < list.length; i++) {
   list[i].style.width = (keyWidth*0.8) + "px";;
   list[i].style.right = (keyWidth*i+15) + "px";
-  list[i].style.top = (conf.projectionPianoTop+40) + "px";
-  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-40) + "px";
+  list[i].style.top = (conf.projectionPianoTop+100) + "px";
+  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-80) + "px";
 
 }
 
