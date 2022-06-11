@@ -115,7 +115,7 @@ function key_check(event)
 
     function play(i) { 
       vid.src = i.url;
-      vid.type = "video/mp4";
+      vid.type = i.type;
       vid.width = 1280
       vid.height = 720      
       hide_element('menuDiv')
