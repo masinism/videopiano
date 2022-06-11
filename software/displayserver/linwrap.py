@@ -1,5 +1,5 @@
 from os import path
-from twisted.web import server, resource
+from twisted.web import server, resource, static
 from twisted.internet import reactor, endpoints, defer
 from twisted.web.client import Agent, readBody
 
@@ -7,6 +7,7 @@ import os
 from twisted.internet import protocol
 
 CACHE_DIR = "/opt/.cache"
+GUI_DIR = "/opt/videopiano/software/gui"
 
 class LinthesiaProtocol(protocol.ProcessProtocol):
 
@@ -78,5 +79,9 @@ class LinthesiaResource(resource.Resource):
             
         return content.encode("ascii")
 
-endpoints.serverFromString(reactor, "tcp:3000").listen(server.Site(LinthesiaResource()))
+root = resource.Resource()
+root.putChild(b'gui', static.File(GUI_DIR))
+root.putChild(b'cmd', LinthesiaResource())
+site = server.Site(root)
+endpoints.serverFromString(reactor, "tcp:3000").listen(site)
 reactor.run()
