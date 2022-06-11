@@ -94,7 +94,7 @@
 </head>
 <body onmousemove="getCursorPosition(event)">
 	<div id="metadata_info_left">VIDEOPIANO.EE</div>
-	<div id="metadata_info_right">NAVIGATE: <span style="color: #F20D0D">ENTER</span> <span style="color: #94F20D">UP</span> <span style="color: #0DCAF2">DOWN</span></div>
+	<div id="metadata_info_right">NAVIGATE: <span style="color: #F20D0D">PLAY/STOP</span> <span style="color: #94F20D">UP</span> <span style="color: #0DCAF2">DOWN</span></div>
 
 	<div class="hiders" id="top_hider"></div>
 
@@ -138,9 +138,9 @@ console.log( window.innerWidth);
 var list=document.querySelectorAll(".keyHints");
 for (let i = 0; i < list.length; i++) {
   list[i].style.width = (keyWidth*0.8) + "px";;
-  list[i].style.right = (keyWidth*i+15) + "px";
-  list[i].style.top = (conf.projectionPianoTop+100) + "px";
-  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-80) + "px";
+  list[i].style.right = (keyWidth*i+16) + "px";
+  list[i].style.top = (conf.projectionPianoTop+105) + "px";
+  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-82) + "px";
 
 }
 
