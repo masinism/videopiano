@@ -21,7 +21,7 @@
 			position: absolute;
 			bottom: 0;
 			right:  30px;
-			color: white;
+			color: gray;
 			z-index: 10;
 
 		}
@@ -48,7 +48,7 @@
 	<script src='menu.js'></script>
 	  
 </head>
-<body>
+<body onmousemove="getCursorPosition(event)">
 
 	<section id="midi-data">  
 		<ul></ul>
@@ -56,11 +56,22 @@
 
 	  <canvas id="song-menu" style="height: 150px; width: 100%; background: white; filter: invert(100%)"></canvas>
 
-	<div id="debug"></div>
+	<div id="debug">aa</div>
 	<video loop autoplay="autoplay" id="video">
 		Your Browser does not support the video element
 	</video>
+	<script type="text/javascript">
 
+		function getCursorPosition(event) {
+			var xCursorPosition = event.clientX;
+			var yCursorPosition = event.clientY;
+			document.getElementById('debug').innerHTML = yCursorPosition;
+
+		  }
+
+
+		
+		</script>
 <script type="text/javascript">
 	
 	var conf = {};
