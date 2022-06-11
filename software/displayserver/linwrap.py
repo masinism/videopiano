@@ -58,7 +58,7 @@ class LinthesiaResource(resource.Resource):
         
     def render_GET(self, request):
         content = u"{}"
-        action = request.args[b'action'][0].decode("utf-8")
+        action = request.args[b'cmd'][0].decode("utf-8")
 
         if action == 'start':
             self.protocol = LinthesiaProtocol()
