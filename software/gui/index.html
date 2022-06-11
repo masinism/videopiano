@@ -8,7 +8,7 @@
 		html, body{
 			padding: 0;
 			margin: 0;
-			background: rgb(251, 255, 0);
+			background: black;
 		}
 		#video{
 			width: 100%;
@@ -38,6 +38,39 @@
 			height:200px;
 		}
 
+		.hiders{
+			position: absolute;
+			background-color: black;
+			top:0;
+			left:0;
+			width: 100%;
+			height:100px;
+			z-index: 10;
+		}
+
+		#metadata_info{
+			position: absolute;
+			top: 0px;
+			right: 10px;
+			width: 100%;
+			z-index: 11;
+			color: white;
+			text-align: right;
+			font-size: 8px;
+			font-family: helvetica;
+		}
+
+		.keyHints{
+			position: absolute;
+			background-color: white;
+			top:0;
+
+			width: 20px;
+			height:100px;
+			z-index: 11;
+		}
+	
+
 	</style>
 	<script
 			  src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -49,8 +82,14 @@
 	  
 </head>
 <body onmousemove="getCursorPosition(event)">
+	<div id="metadata_info">Use three of rightmost keys to navigate / VIDEOPIANO.EE</div>
+	<div class="hiders" id="top_hider"></div>
 
-	<section id="midi-data">  
+	<div class="keyHints keyHint1" style="right:0px;top:0px"></div>
+	<div class="keyHints keyHint2" style="right:423px;top:0px"></div>
+	<div class="keyHints keyHint3" style="right:446px;top:0px"></div>
+
+<section id="midi-data">  
 		<ul></ul>
 	  </section>
 
@@ -79,6 +118,23 @@
 conf.projectionAreaTop = 340;
 conf.projectionPianoTop = 514;
 conf.projectionPianoBottom = 640;
+
+var keyWidth = window.innerWidth/52;
+console.log( window.innerWidth);
+
+var list=document.querySelectorAll(".keyHints");
+for (let i = 0; i < list.length; i++) {
+  list[i].style.backgroundColor = "red";
+  list[i].style.width = (keyWidth*0.8) + "px";;
+  list[i].style.right = (keyWidth*i) + "px";
+  list[i].style.top = (conf.projectionPianoTop) + "px";
+  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop) + "px";
+
+}
+
+
+document.getElementById('top_hider').style.height = conf.projectionAreaTop + "px";
+document.getElementById('metadata_info').style.top = conf.projectionAreaTop + "px";
 
 	var mapping = {};
 	mapping.w = screen.width;
