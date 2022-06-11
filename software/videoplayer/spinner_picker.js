@@ -45,7 +45,7 @@ class SpinnerPicker {
         this.valueHandler = valueHandler;
         this.onchanged = onchanged;
         var self = this;
-        this.focused = false;
+        this.focused = true;
         this.mouseEventHandler = function(e) { self.mouseInteraction(e); };
         this.mouseFocusInEventHandler = function() { self.focused = true; }; 
         this.mouseFocusOutEventHandler = function() { self.focused = false; }; 

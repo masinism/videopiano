@@ -1,125 +1,133 @@
 <!DOCTYPE html> 
 <html> 
 <body> 
-<div  style="width: 250px;">
-  <h1>Menu</h1>
-  <canvas id="song-menu" style="height: 150px;"></canvas>
+<div id="menuDiv"  class="menu-div" style="display: block">
+  <div  style="width: 250px;">
+    <h1>TrackList</h1>
+    <canvas id="song-menu" style="height: 150px;"></canvas>
+  </div>
 </div>
-<h2 id="nowPlaying"></h2>
-<!-- 
-<button onclick="play()" type="button">Play</button> -->
-<button onclick="pause()" type="button">Pause</button>
-<button onclick="seek()" type="button">+20sec</button>
-<button onclick="tempo(-0.25)" type="button">slower</button>
-<button onclick="tempo(0.25)" type="button">faster</button>
-<br> 
 
-<video id="v" width="320" height="176" controls>
-   <source src="" type="">
-</video>
+<div id="videoDiv" style="display: none">
+  <button onclick="pause()" type="button">Pause</button>
+  <button onclick="seek()" type="button">+20sec</button>
+  <button onclick="tempo(-0.25)" type="button">slower</button>
+  <button onclick="tempo(0.25)" type="button">faster</button>
+  <br> 
+
+  <video id="v" width="320" height="176" controls>
+    <source src="" type="">
+  </video>
+</div>
 <br><br>
 
 <style>
   body { overscroll-behavior: contain; margin: 0; }
   h1 { font-size: 24px; margin: 0 0 5px 0; font-weight: bold; }
   h2 { font-size: 16px; margin: 0 0 5px 0; font-weight: normal; }
-  .demo-sample { float: left; text-align: center; width: 200px; margin: 10px 0 0 10px; padding: 5px 7px 2px 5px; border: 1px solid #333333; box-shadow: 1.5px 1.5px 2.5px 3px #ccc; }
-  .demo-sample canvas { width: 100%; height: 200px; border: solid black 1px; }
+  .menu-div { float: left; text-align: center; width: 300px; margin: 10px 0 0 10px; padding: 5px 7px 2px 5px; border: 1px solid #333333; box-shadow: 1.5px 1.5px 2.5px 3px #ccc; }
+  .menu-div canvas { width: 100%; height: 200px; border: solid black 1px; }
   table, td, tr { border: none; border-collapse: collapse; }
 </style>
-<script src="spinner_picker.js"></script>
-<script> 
 
-var vid = document.getElementById("v"); 
-var input = [];
-// load stuffz:
-fetch('https://raw.githubusercontent.com/masinism/videopiano/main/software/videoplayer/input.json')
-  .then(response => response.json())
-  .then(data => {
-    
-    for (var key in data) {
-    if (data.hasOwnProperty(key)) {
-        var item = data[key];
-        input.push({
-            url: item.url,
-            type: item.type,
-            author: item.author,
-            track_name: item.track_name,
-            mapping_x: item.mapping_x,
-            mapping_y: item.mapping_y
-        });            
+<script src="spinner_picker.js"></script>
+
+<script> 
+//Let's catch backspace here 
+document.addEventListener("keydown", key_check); 
+function key_check(event)
+{
+   var key_id = event.keyCode;
+   switch(key_id)
+   {
+      case 8:
+        handle_backspace();
+      break; 
+      default:
+      break;
+   }
+}
+  var vid = document.getElementById("v"); 
+  var input = [];
+  // load stuffz:
+  fetch('https://raw.githubusercontent.com/masinism/videopiano/main/software/videoplayer/input.json')
+    .then(response => response.json())
+    .then(data => {
+      
+      for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+          var item = data[key];
+          input.push({
+              url: item.url,
+              type: item.type,
+              author: item.composer,
+              track_name: item.track_name,
+              mapping_y: item.mapping_piano_top_y,
+              credits : item.credits
+          });            
+        }
+      }
+      create_menu(input)
+    })
+    .catch(error => console.log(error));
+
+    function create_menu(items){
+        new SpinnerPicker(
+            document.getElementById("song-menu"), 
+            function(index) {
+                if(index < 0 || index >= items.length) {
+                    return null;
+                }
+                return items[index]
+            }, 
+            //config
+            { 
+              index: 0, 
+              selection_color: "red", 
+              font: "Comic Sans MS",
+              onkeydown: true
+            },
+            function(index) { }
+        );
+    }
+
+    function handle_backspace(){
+        show_element('menuDiv')
+        hide_element('videoDiv')
+    }
+
+    function show_element(id){
+      let el = document.getElementById(id)
+      if (el.style.display === 'none'){
+          el.style.display = 'block';
       }
     }
-    create_menu(input)
-    // table = document.getElementById("tbody")
-    // console.log(input[0])
-    // input.forEach(item => {
-    //     let tr = document.createElement('tr');
-    //     table.appendChild(tr);
-    //     let author = document.createElement('td')
-    //     author.innerHTML += item.author;
-    //     table.appendChild(author);
-    //     let url = document.createElement('td')
-    //     url.innerHTML += item.track_name;
-    //     table.appendChild(url);
-    //     let btn = document.createElement('button')
-    //     btn.innerHTML = "Play";
-    //     btn.addEventListener("click", function () {
-    //         play(item);
-    //       });
-    //     table.appendChild(btn)
-    //})
-  })
-  .catch(error => console.log(error));
 
-  function create_menu(items){
-      new SpinnerPicker(
-          document.getElementById("song-menu"), 
-          function(index) {
-              // Check if the index is in range of the array - Return null if its not the case
-              if(index < 0 || index >= items.length) {
-                  return null;
-              }
-              return items[index]
-            //  return items[index].author + " " + items[index].track_name;
-          }, 
-          //config
-          { 
-            index: 0, 
-            selection_color: "red", 
-            font: "Comic Sans MS",
-            onkeydown: true
-          },
-          function(index) { 
-            console.log(this)
-            //play(items[index])
-          }
-      );
-  }
+    function hide_element(id){
+      let el = document.getElementById(id)
+      if (el.style.display === 'block'){
+          el.style.display = 'none';
+      }
+    }
 
-
-function play(i) { 
-  vid.src = i.url;
-  vid.type = i.type;
-  vid.width = i.mapping_x
-  vid.height = i.mapping_y
-  var h = document.getElementById('nowPlaying')
-  h.innerHTML = "Now Playing " + i.author 
-  vid.play(); 
-};
-
-function pause() { 
-  vid.pause();
-} 
-
-function seek() { 
-  vid.currentTime += 20;
-} 
-
-function tempo(x){
-  vid.playbackRate += x;
-}
+    function play(i) { 
+      vid.src = i.url;
+      vid.type = i.type;
+      vid.width = 1280
+      vid.height = i.mapping_piano_top_y
+      hide_element('menuDiv')
+      show_element('videoDiv')
+      vid.play(); 
+    };
+    function pause() { 
+      vid.pause();
+    } 
+    function seek() { 
+      vid.currentTime += 20;
+    } 
+    function tempo(x){
+      vid.playbackRate += x;
+    }
 </script> 
-
 </body> 
 </html>
