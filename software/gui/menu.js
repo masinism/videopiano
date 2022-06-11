@@ -18,15 +18,17 @@ function menuGetCurrentItem(){
       for (var key in data) {
       if (data.hasOwnProperty(key)) {
           var item = data[key];
-          playList.push({
-              url: item.url,
-              type: item.type,
-              author: item.composer,
-              track_name: item.track_name,
-              mapping_y: item.mapping_piano_top_y,
-              credits : item.credits,
-              first_note_time: item.first_note_time
-          });            
+          if(item.type=="audio/midi"){            
+            playList.push({
+                url: item.url,
+                type: item.type,
+                author: item.composer,
+                track_name: item.track_name,
+                mapping_y: item.mapping_piano_top_y,
+                credits : item.credits,
+                first_note_time: item.first_note_time
+            });   
+          }         
         }
       }
       create_menu(playList)
