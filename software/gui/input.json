@@ -1,6 +1,55 @@
 [
 	{
-		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia).mp4",
+		"url": "https://www.videopiano.ee/test/mid/Spiegel_am_Spiegel_Arvo_Part_piano.mid",
+		"type": "audio/midi",
+		"composer": "Arvo Part",
+		"track_name": "Spiegel am Spiegel",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/mid/Philip_Glass_-_Etude_2.mid",
+		"type": "audio/midi",
+		"composer": "Philip_Glass",
+		"track_name": "Etude 2",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/mid/Claire_de_lune_-_Claude_Debussy.mid",
+		"type": "audio/midi",
+		"composer": "Claire De Lune",
+		"track_name": "Claude Debussy",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/mid/Edelweiss_-_Sound_of_Music_for_EASY_Piano.mid",
+		"type": "audio/midi",
+		"composer": "Edelweiss",
+		"track_name": "Sound of Music EASY",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/mid/Twin_Peaks_Theme.mid",
+		"type": "audio/midi",
+		"composer": "Angelo Badalamenti",
+		"track_name": "Twin Peaks Theme",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/mid/Easy_Partition_Piano_Titanic_-_My_Heart_Will_Go_on_.mid",
+		"type": "audio/midi",
+		"composer": "Celine Dion",
+		"track_name": "Titanic / My Heart Will Go On",
+		"credits": "Musescore @sim10"
+	},	
+	{
+		"url": "https://www.videopiano.ee/test/mid/Raindrops_Keep_Falling_On_My_Head.mid",
+		"type": "audio/midi",
+		"composer": "Burt Bacharach, Hal David",
+		"track_name": "Raindrops keep falling on my head",
+		"credits": ""
+	},
+	{
+		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia) [fIgVBRL0Jx4]-1649959360.mp4",
 		"type": "video/mp4",
 		"composer": "Philip Glass",
 		"track_name": "Mad Rush",

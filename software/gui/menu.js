@@ -4,22 +4,31 @@ var currentMenu = 0;
 
 var menuSongs;
 
+function menuGetCurrentItem(){
+
+    return playList[currentMenu];
+
+}
+
+
   // load stuffz:
-  fetch('https://raw.githubusercontent.com/masinism/videopiano/main/software/videoplayer/input.json')
+  fetch('input.json')
     .then(response => response.json())
     .then(data => {
       for (var key in data) {
       if (data.hasOwnProperty(key)) {
           var item = data[key];
-          playList.push({
-              url: item.url,
-              type: item.type,
-              author: item.composer,
-              track_name: item.track_name,
-              mapping_y: item.mapping_piano_top_y,
-              credits : item.credits,
-              first_note_time: item.first_note_time
-          });            
+          if(item.type=="audio/midi"){            
+            playList.push({
+                url: item.url,
+                type: item.type,
+                author: item.composer,
+                track_name: item.track_name,
+                mapping_y: item.mapping_piano_top_y,
+                credits : item.credits,
+                first_note_time: item.first_note_time
+            });   
+          }         
         }
       }
       create_menu(playList)
@@ -49,6 +58,9 @@ var menuSongs;
     }
 
     function create_menu(items){
+        
+        positionMenu();
+
         menuSongs = new SpinnerPicker(
             document.getElementById("song-menu"), 
             function(index) {
@@ -66,5 +78,13 @@ var menuSongs;
             },
             function(index) { }
         );
-        document.getElementById('song-menu').focus();
+        // document.getElementById('song-menu').focus();
+    }
+
+    function positionMenu(){
+        
+        document.getElementById('song-menu').style.top = conf.projectionAreaTop + "px";
+        document.getElementById('song-menu').style.height = (conf.projectionPianoTop-conf.projectionAreaTop) + "px";
+
+
     }

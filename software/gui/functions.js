@@ -1,6 +1,9 @@
+
+
+
 function sendCmdDisplayServer(getParams){
 
-    getJSON("http://localhost:3000", getParams)
+    getJSON("http://192.168.90.50:3000", getParams)
     .then(data => {
         console.log(data);
     });
@@ -27,4 +30,19 @@ function getJSON(url, qs_params) {
       xhr.onerror = () => reject(xhr.statusText);
       xhr.send();
     });
+  }
+
+
+  function show_element(id){
+    let el = document.getElementById(id)
+    if (el.style.display === 'none'){
+        el.style.display = '';
+    }
+  }
+
+  function hide_element(id){
+    let el = document.getElementById(id)
+    if (el.style.display === ''){
+        el.style.display = 'none';
+    }
   }
