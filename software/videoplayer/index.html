@@ -24,15 +24,29 @@
 			z-index: 10;
 
 		}
+
+		#midi-data{
+			display: none;
+		}
+
 	</style>
 	<script
 			  src="https://code.jquery.com/jquery-3.6.0.min.js"
 			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			  crossorigin="anonymous"></script>
 	<script src='functions.js'></script>
+	<script src="spinner_picker.js"></script>
+	<script src='menu.js'></script>
 	  
 </head>
 <body>
+
+	<section id="midi-data">  
+		<ul></ul>
+	  </section>
+
+	  <canvas id="song-menu" style="height: 150px; width: 100%; background: white; filter: invert(100%)"></canvas>
+
 	<div id="debug"></div>
 	<video w autoplay="autoplay" id="video">
 		Your Browser does not support the video element
@@ -69,7 +83,7 @@ function playRandom(){
         }
   
 
-		sendCmdDisplayServer({cmd:"start"});
+		// sendCmdDisplayServer({cmd:"start"});
 
 
 
@@ -94,7 +108,7 @@ function playRandom(){
   
         }
 
-        updateData();
+        //updateData();
 
         function updateSize(){
 
@@ -106,47 +120,43 @@ function playRandom(){
 
         }
 
-		window.addEventListener('keyup', function(event) {
+				
+		function userInput(id){
 
-		  if (event.keyCode === 13) {
-		    document.getElementById("video").play();
-		  }
+			// var newItem = document.createElement('li');
+			// newItem.appendChild(document.createTextNode(triggerId));
+			// dataList.appendChild(newItem);
 
-		  if (event.keyCode === 49) {
-		  	mapping.w++;
-		  	updateSize();
-		  }
+			switch(id){
+				case "1":
+					menuControl("down");
+					break;
+				case "2":
+					menuControl("up");
+					break;
+				case "3":
+					break;
+				case "8":
+					menuControl("up");
+					break;  
+				case "9":
+					menuControl("down");
+					break;                    
+				case "1+9":
+					break;   
+				default:
+					console.log("Trigger ID not found" + id);         
+			}
 
-		  if (event.keyCode === 50) {
-		  	mapping.w--;
-		  	updateSize();
-		  }
+
+		}
 
 
-		  if (event.keyCode === 51) {
-		  	mapping.top++;
-		  	updateSize();
-		  }
-
-		  if (event.keyCode === 52) {
-		  	mapping.top--;
-		  	updateSize();
-		  }
-
-		  if (event.keyCode === 53) {
-		  	mapping.speed += 0.1;
-		  	video_change_speed();
-		  }
-
-		  if (event.keyCode === 54) {
-		  	mapping.speed -= 0.1;
-		  	video_change_speed();
-		  }
-
-		});
 
 
 
 </script>
+<script src='midi.js'></script>
+
 </body>
 </html>

@@ -125,8 +125,8 @@ class SpinnerPicker {
      * void
      */
     setIndex(index) {
-        this.blockInput = true;
-        this.currentAnimationStep = 0;
+        // this.blockInput = true;
+        // this.currentAnimationStep = 2;
         this.currentIndex = index;
         this.gotoIndex = index;
         this.updateView();

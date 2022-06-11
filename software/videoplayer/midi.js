@@ -1,5 +1,6 @@
 var midi, data;
 
+
 // start talking to MIDI controller
 if (navigator.requestMIDIAccess) {
   navigator.requestMIDIAccess({
@@ -23,12 +24,13 @@ function onMIDISuccess(midiData) {
 var dataList = document.querySelector('#midi-data ul')
 
 var keyStates = {};
-
+/*
 function trigger(triggerId){
 
-    var newItem = document.createElement('li');
-    newItem.appendChild(document.createTextNode(triggerId));
-    dataList.appendChild(newItem);
+    // var newItem = document.createElement('li');
+    // newItem.appendChild(document.createTextNode(triggerId));
+    // dataList.appendChild(newItem);
+
     switch(triggerId){
         case "HIGH_MENUKEY_1":
             break;
@@ -46,6 +48,7 @@ function trigger(triggerId){
 
 
 }
+*/
 
 function checkTwoKeyPress(noteid){
 
@@ -57,7 +60,7 @@ function checkTwoKeyPress(noteid){
     }
 
     if(show==1){
-        trigger("DOUBLE_MENU_KEY");
+        userInput("1,9");
     }
 
 }
@@ -76,20 +79,23 @@ function gotMIDImessage(messageData) {
     
     console.log(messageData.data);
     if(messageData.data[0]==144 && messageData.data[1]==105){
-        trigger("HIGH_MENUKEY_3");
+        userInput("7");
     }
     if(messageData.data[0]==144 && messageData.data[1]==107){
-        trigger("HIGH_MENUKEY_2");
+        userInput("8");
     }
     if(messageData.data[0]==144 && messageData.data[1]==108){
-        trigger("HIGH_MENUKEY_1");
+        userInput("9");
         checkTwoKeyPress(noteid);
 
     }
     if(messageData.data[0]==144 && messageData.data[1]==21){
-        trigger("LOW_MENUKEY_1");
+        userInput("1");
         checkTwoKeyPress(noteid);
-    }            
+    }       
+    if(messageData.data[0]==144 && messageData.data[1]==25){
+        userInput("2");
+    }          
     var newItem = document.createElement('li');
     newItem.appendChild(document.createTextNode(messageData.data));
     dataList.appendChild(newItem);
@@ -99,3 +105,22 @@ function gotMIDImessage(messageData) {
 function onMIDIFailure() {
   console.warn("Not recognising MIDI controller")
 }
+
+
+document.addEventListener('keyup', function(event) {
+
+    switch(event.key){
+        case "1":  gotMIDImessage({data:[144,21,125]}); break;
+        case "2":  gotMIDImessage({data:[144,25,125]}); break;
+        case "3":  gotMIDImessage({data:[144,25,125]}); break;
+        case "4":  gotMIDImessage({data:[144,25,125]}); break;
+        case "5":  gotMIDImessage({data:[144,25,125]}); break;
+        case "6":  gotMIDImessage({data:[144,25,125]}); break;
+        case "7":  gotMIDImessage({data:[144,105,125]}); break;
+        case "8":  gotMIDImessage({data:[144,107,125]}); break;
+        case "9":  gotMIDImessage({data:[144,108,125]}); break;
+       
+    }
+
+
+  });
