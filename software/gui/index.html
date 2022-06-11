@@ -132,14 +132,26 @@ function playRandom(){
 			get.mapping_piano_top_y = d.mapping_piano_top_y;
 
 			states.activeOutput = "synthesia";
-			sendCmdDisplayServer(getParams);
+			sendCmdDisplayServer(get);
 		}
 
 		function syntesiaStop(){
 			var get = {};
 			get.cmd = "stop";
 			states.activeOutput = "";
-			sendCmdDisplayServer(getParams);
+			sendCmdDisplayServer(get);
+		}
+
+		function syntesiaSlower(){
+			var get = {};
+			get.cmd = "speedup";
+			sendCmdDisplayServer(get);
+		}
+
+		function syntesiaFaster(){
+			var get = {};
+			get.cmd = "speeddown";
+			sendCmdDisplayServer(get);
 		}
 
 		function startMusic(){
@@ -161,13 +173,13 @@ function playRandom(){
 
 			switch(id){
 				case "1":
-					if(states.activeOutput==""){
-						menuControl("down");
+					if(states.activeOutput=="synthesia"){
+						syntesiaSlower();
 					}
 					break;
 				case "2":
-					if(states.activeOutput==""){
-						menuControl("up");
+					if(states.activeOutput=="synthesia"){
+						syntesiaFaster();
 					}
 					break;
 				case "3":
@@ -207,12 +219,12 @@ function playRandom(){
 		}
 
 
-		document.getElementById("")
+	
 
 
 </script>
 <script src='midi.js'></script>
-	<script src='video.js'></script>
+<script src='video.js'></script>
 
 </body>
 </html>

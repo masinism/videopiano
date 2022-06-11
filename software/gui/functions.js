@@ -3,7 +3,7 @@
 
 function sendCmdDisplayServer(getParams){
 
-    getJSON("http://localhost:3000", getParams)
+    getJSON("http://192.168.90.50:3000", getParams)
     .then(data => {
         console.log(data);
     });
