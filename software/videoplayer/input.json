@@ -4,7 +4,7 @@
 		"type": "video/mp4",
 		"composer": "Philip Glass",
 		"track_name": "Mad Rush",
-		"credits":"Youtube @EdmondTHui",
+		"credits": "Youtube @EdmondTHui",
 		"mapping_piano_top_y": 320,
 		"first_note_time": 0
 	},
@@ -13,37 +13,34 @@
 		"type": "video/mp4",
 		"composer": "Twin Peaks",
 		"track_name": "Opening Theme",
-		"credits":"Youtube @Easy Piano For All",
+		"credits": "Youtube @Easy Piano For All",
 		"mapping_piano_top_y": 320,
 		"first_note_time": 0
 	},
-	,
 	{
 		"url": "https://www.videopiano.ee/test/A%20Farewell%20Melody%20-%20Jacobs%20Piano%20_%20Synthesia%20Piano%20Tutorial%206L8suPLlxw8.mp4",
 		"type": "video/mp4",
 		"composer": "Jacobs Piano",
 		"track_name": "A Farewell Melody",
-		"credits":"Youtube @Jacobs",
+		"credits": "Youtube @Jacobs",
 		"mapping_piano_top_y": 320,
 		"first_note_time": 0
 	},
-	,
 	{
 		"url": "https://www.videopiano.ee/test/Beethoven%20-%20Moonlight%20Sonata%20(3rd%20Movement)%20[Piano%20Tutorial]%20[WolqGAgiolM]-1649973276.mp4",
 		"type": "video/mp4",
 		"composer": "Beethoven",
 		"track_name": "Moonlight Sonata",
-		"credits":"Youtube @Easy Piano For All",
+		"credits": "Youtube @Easy Piano For All",
 		"mapping_piano_top_y": 320,
 		"first_note_time": 0
 	},
-	,
 	{
 		"url": "https://www.videopiano.ee/test/Game%20of%20Thrones%20-%20Main%20Theme%20_%20Synthesia%20Piano%20Tutorial%20[RUgCFbaQROM]-1649977990.mp4",
 		"type": "video/mp4",
 		"composer": "Game of Thrones",
 		"track_name": "Main Theme",
-		"credits":"Youtube @Easy Piano For All",
+		"credits": "Youtube @Easy Piano For All",
 		"mapping_piano_top_y": 320,
 		"first_note_time": 0
 	}
