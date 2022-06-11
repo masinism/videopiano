@@ -18,7 +18,7 @@ function menuGetCurrentItem(){
       for (var key in data) {
       if (data.hasOwnProperty(key)) {
           var item = data[key];
-          if(item.type!="audio/midi"){            
+          if(item.type=="audio/midi"){            
             playList.push({
                 url: item.url,
                 type: item.type,
