@@ -1,20 +1,20 @@
 
 let video = document.querySelector('video');
 
-var currentVideoPianoTop = 0;
+
+var currentVideoPianoRatio = 1;
 
 video.addEventListener( "loadedmetadata", function (e) {
-    var width = this.videoWidth,
-        height = this.videoHeight;
-        adjustVideoSize(this.videoWidth,this.videoHeight);
-        console.log(this.videoHeight);
+
+    console.log(this.videoHeight);
+    video.style.top = (this.videoHeight*currentVideoPianoRatio) + "px";
+
 }, false );
 
-function adjustVideoSize(videofileWidth,videofileHeight){
+function adjustVideoSize(){
 
     video.width = 1280;
-    var percentage = currentVideoPianoTop/videofileHeight;
-    video.top = video.height*percentage;
+    video.style.top = video.height*currentVideoPianoRatio;
     
 }
 
@@ -24,7 +24,10 @@ function videoPlay(d) {
 
     video.type = d.type;
     video.width = 1280;
-    currentVideoPianoTop = d.mapping_piano_top_y;
+    currentVideoPianoRatio = d.mapping_piano_top_y / d.video_height;
+    console.log("ratio: "+currentVideoPianoRatio);
+
+    // video.top = video.height*currentVideoPianoRatio;
     // video.height = d.mapping_piano_top_y
     hide_element('song-menu')
     show_element('video')
