@@ -186,35 +186,41 @@ function playRandom(){
 			switch(id){
 				case "1":
 					if(states.activeOutput=="synthesia"){
-						syntesiaSlower();
+					//	syntesiaSlower();
 					}
 					break;
 				case "2":
 					if(states.activeOutput=="synthesia"){
-						syntesiaFaster();
+					//	syntesiaFaster();
 					}
 					break;
 				case "3":
 					if(states.activeOutput=="video"){
-						videoStop();
+					//	videoStop();
 					} else if(states.activeOutput=="synthesia"){
-						syntesiaStop();
+					//	syntesiaStop();
 					}
 					break;
 				case "7":
 					if(states.activeOutput==""){
 						startMusic();
-					}
+					} else if(states.activeOutput=="synthesia"){
+						syntesiaStop();
+					} 
 					break;  
 				case "8":
 					if(states.activeOutput==""){
 						menuControl("up");
-					}
+					} else if(states.activeOutput=="synthesia"){
+						syntesiaFaster();
+					} 
 					break;  
 				case "9":
 					if(states.activeOutput==""){
 						menuControl("down");
-					}
+					} else if(states.activeOutput=="synthesia"){
+						syntesiaSlower();
+					} 
 					break;                    
 				case "1+9":
 					if(states.activeOutput=="video"){
