@@ -23,6 +23,8 @@ class LinthesiaProtocol(protocol.ProcessProtocol):
     def processEnded(self, status):
         print("PROCESS ENDED", str(status))
 
+class ChromiumProtocol(protocol.ProcessProtocol):
+    pass
 
 def is_cached(url):
     return path.exists(os.path.join(CACHE_DIR, url))
@@ -87,4 +89,15 @@ root.putChild(b'gui', static.File(GUI_DIR))
 root.putChild(b'cmd', LinthesiaResource())
 site = server.Site(root)
 endpoints.serverFromString(reactor, "tcp:3000").listen(site)
+
+chromium = ChromiumProtocol()
+
+reactor.spawnProcess(chromium, "chromium-browser",
+                     args=['chromium-browser', "--simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT'",
+                           "--kiosk",  "--touch-events=enabled", "--disable-pinch", "--noerrdialogs",
+                           "--disable-session-crashed-bubble", "--disable-component-update", "--overscroll-history-navigation=0",
+                           "--disable-features=Translate", "--app=http://localhost:3000"],
+                     env=os.environ)
+
+
 reactor.run()
