@@ -14,6 +14,13 @@
 		"credits": ""
 	},
 	{
+		"url": "https://www.videopiano.ee/test/mid/Claire_de_lune_-_Claude_Debussy.mid",
+		"type": "audio/midi",
+		"composer": "Claire De Lune",
+		"track_name": "Claude Debussy",
+		"credits": ""
+	},
+	{
 		"url": "https://www.videopiano.ee/test/mid/Edelweiss_-_Sound_of_Music_for_EASY_Piano.mid",
 		"type": "audio/midi",
 		"composer": "Edelweiss",
