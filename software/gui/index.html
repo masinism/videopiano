@@ -48,7 +48,7 @@
 			z-index: 10;
 		}
 
-		#metadata_info{
+		#metadata_info_right{
 			position: absolute;
 			top: 0px;
 			right: 10px;
@@ -56,8 +56,19 @@
 			z-index: 11;
 			color: white;
 			text-align: right;
-			font-size: 8px;
-			font-family: helvetica;
+			font-size: 9px;
+			font-family: 'Courier New', Courier, monospace;
+		}
+		#metadata_info_left{
+			position: absolute;
+			top: 0px;
+			left: 10px;
+			width: 100%;
+			z-index: 11;
+			color: white;
+			text-align: left;
+			font-size: 9px;
+			font-family: 'Courier New', Courier, monospace;
 		}
 
 		.keyHints{
@@ -82,12 +93,14 @@
 	  
 </head>
 <body onmousemove="getCursorPosition(event)">
-	<div id="metadata_info">Use three of rightmost keys to navigate / VIDEOPIANO.EE</div>
+	<div id="metadata_info_left">VIDEOPIANO.EE</div>
+	<div id="metadata_info_right">NAVIGATE: <span style="color: #F20D0D">ENTER</span> <span style="color: #94F20D">UP</span> <span style="color: #0DCAF2">DOWN</span></div>
+
 	<div class="hiders" id="top_hider"></div>
 
-	<div class="keyHints keyHint1" style="right:0px;top:0px"></div>
-	<div class="keyHints keyHint2" style="right:423px;top:0px"></div>
-	<div class="keyHints keyHint3" style="right:446px;top:0px"></div>
+	<div class="keyHints keyHint1" style="right:0px;top:0px; background-color:#0DCAF2;"></div>
+	<div class="keyHints keyHint2" style="right:423px;top:0px; background-color:#94F20D;"></div>
+	<div class="keyHints keyHint3" style="right:446px;top:0px; background-color:#F20D0D;"></div>
 
 <section id="midi-data">  
 		<ul></ul>
@@ -124,17 +137,17 @@ console.log( window.innerWidth);
 
 var list=document.querySelectorAll(".keyHints");
 for (let i = 0; i < list.length; i++) {
-  list[i].style.backgroundColor = "red";
   list[i].style.width = (keyWidth*0.8) + "px";;
-  list[i].style.right = (keyWidth*i) + "px";
-  list[i].style.top = (conf.projectionPianoTop) + "px";
-  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop) + "px";
+  list[i].style.right = (keyWidth*i+15) + "px";
+  list[i].style.top = (conf.projectionPianoTop+40) + "px";
+  list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-40) + "px";
 
 }
 
 
 document.getElementById('top_hider').style.height = conf.projectionAreaTop + "px";
-document.getElementById('metadata_info').style.top = conf.projectionAreaTop + "px";
+document.getElementById('metadata_info_right').style.top = conf.projectionAreaTop + "px";
+document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop + "px";
 
 	var mapping = {};
 	mapping.w = screen.width;
