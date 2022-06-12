@@ -9,6 +9,7 @@
 			padding: 0;
 			margin: 0;
 			background: black;
+			overflow: hidden;
 		}
 		#video{
 			width: 100%;
@@ -138,7 +139,7 @@ console.log( window.innerWidth);
 var list=document.querySelectorAll(".keyHints");
 for (let i = 0; i < list.length; i++) {
   list[i].style.width = (keyWidth*0.8) + "px";;
-  list[i].style.right = (keyWidth*i+16) + "px";
+  list[i].style.right = (keyWidth*i+18) + "px";
   list[i].style.top = (conf.projectionPianoTop+105) + "px";
   list[i].style.height = (conf.projectionPianoBottom-conf.projectionPianoTop-82) + "px";
 
@@ -157,7 +158,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 
 	var videos = [];
 
-	var states = {"activeOutput":""};
+	var states = {"activeOutput":"","currentSpeed":1};
 
 
 
@@ -206,10 +207,19 @@ function playRandom(){
         }
 
 		function startSynthesia(d){
+
+			if(currentSpeed <= 0.1){
+				currentSpeed = 0.1;
+			}
+
+			if(currentSpeed >= 1.5){
+				currentSpeed = 1.5;
+			}
 		
 			var get = {};
 			get.cmd = "start";
 			get.url = d.url;
+			get.speed = currentSpeed;
 			get.mapping_piano_top_y = d.mapping_piano_top_y;
 
 			states.activeOutput = "synthesia";
@@ -224,12 +234,14 @@ function playRandom(){
 		}
 
 		function syntesiaSlower(){
+			currentSpeed = currentSpeed+0.1;
 			var get = {};
 			get.cmd = "speedup";
 			sendCmdDisplayServer(get);
 		}
 
 		function syntesiaFaster(){
+			currentSpeed = currentSpeed-0.1;
 			var get = {};
 			get.cmd = "speeddown";
 			sendCmdDisplayServer(get);
