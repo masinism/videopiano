@@ -56,7 +56,7 @@ class LinthesiaResource(resource.Resource):
 
     def spawn(self, mid_file):
         reactor.spawnProcess(self.protocol, "/opt/linthesia/build/src/linthesia",
-                             args=['linthesia', '-W', '-s', '-f', mid_file, '--loop-song'],
+                             args=['linthesia', '-W', '-s', '-f', mid_file, '--loop-song', '--skip-key-legend'],
                              env=os.environ)
         
     def render_GET(self, request):
