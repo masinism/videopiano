@@ -158,7 +158,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 
 	var videos = [];
 
-	var states = {"activeOutput":"","currentSpeed":1};
+	var states = {"activeOutput":"","currentSpeed":0.8};
 
 
 
@@ -208,18 +208,18 @@ function playRandom(){
 
 		function startSynthesia(d){
 
-			if(currentSpeed <= 0.1){
-				currentSpeed = 0.1;
+			if(states.currentSpeed <= 0.1){
+				states.currentSpeed = 0.1;
 			}
 
-			if(currentSpeed >= 1.5){
-				currentSpeed = 1.5;
+			if(states.currentSpeed >= 1.5){
+				states.currentSpeed = 1.5;
 			}
 		
 			var get = {};
 			get.cmd = "start";
 			get.url = d.url;
-			get.speed = currentSpeed;
+			get.speed = states.currentSpeed;
 			get.mapping_piano_top_y = d.mapping_piano_top_y;
 
 			states.activeOutput = "synthesia";
@@ -234,14 +234,14 @@ function playRandom(){
 		}
 
 		function syntesiaSlower(){
-			currentSpeed = currentSpeed+0.1;
+			states.currentSpeed = states.currentSpeed+0.1;
 			var get = {};
 			get.cmd = "speedup";
 			sendCmdDisplayServer(get);
 		}
 
 		function syntesiaFaster(){
-			currentSpeed = currentSpeed-0.1;
+			states.currentSpeed = states.currentSpeed-0.1;
 			var get = {};
 			get.cmd = "speeddown";
 			sendCmdDisplayServer(get);
