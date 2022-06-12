@@ -73,7 +73,7 @@ class LinthesiaResource(resource.Resource):
             self.protocol = LinthesiaProtocol()
             midi_url = request.args[b'url'][0].decode("utf-8")
             try:
-                self.speed = request.args[b'speed'][0].decode("utf-8")
+                self.speed = 100 * float(request.args[b'speed'][0].decode("utf-8"))
             except:
                 pass
             d = defer.Deferred()
