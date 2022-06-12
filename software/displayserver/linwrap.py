@@ -53,10 +53,11 @@ def fetch_midi(url, mid_file, spawn_d):
 class LinthesiaResource(resource.Resource):
     isLeaf = True
     protocol = None
-
+    speed = 100
+    
     def spawn(self, mid_file):
         reactor.spawnProcess(self.protocol, "/opt/linthesia/build/src/linthesia",
-                             args=['linthesia', '-W', '-s', '-f', mid_file, '--loop-song', '--skip-key-legend'],
+                             args=['linthesia', '-W', '-s', '-f', mid_file, '--loop-song', '--skip-key-legend', '--song-speed', str(self.speed)],
                              env=os.environ)
         
     def render_GET(self, request):
@@ -71,6 +72,10 @@ class LinthesiaResource(resource.Resource):
                     pass
             self.protocol = LinthesiaProtocol()
             midi_url = request.args[b'url'][0].decode("utf-8")
+            try:
+                self.speed = 100 * float(request.args[b'speed'][0].decode("utf-8"))
+            except:
+                pass
             d = defer.Deferred()
             d.addCallback(self.spawn)            
             fetch_midi(midi_url, os.path.join(CACHE_DIR, os.path.basename(midi_url)), d)
