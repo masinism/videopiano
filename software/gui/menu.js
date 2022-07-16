@@ -12,7 +12,7 @@ function menuGetCurrentItem(){
 
 
   // load stuffz:
-  fetch('input2.json?rnd='+new Date().getTime())
+  fetch('music/files.php'+new Date().getTime())
     .then(response => response.json())
     .then(data => {
       for (var key in data) {
