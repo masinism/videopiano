@@ -62,6 +62,17 @@
 		"track_name": "Raindrops keep falling on my head",
 		"credits": ""
 	},
+	
+	{
+		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia) [fIgVBRL0Jx4]-1649959360.mp4",
+		"type": "video/mp4",
+		"composer": "Philip Glass",
+		"track_name": "Mad Rush",
+		"credits": "Youtube @EdmondTHui",
+		"video_height":360,
+		"mapping_piano_top_y": 245,
+		"first_note_time": 0
+	},
 	{
 		"url": "https://www.videopiano.ee/test/Spiegel_am_Spiegel_Arvo_Part_piano_ffmpeg.mp4",
 		"type": "video/mp4",
@@ -73,21 +84,23 @@
 		"first_note_time": 0
 	},
 	{
-		"url": "https://www.videopiano.ee/test/Philip Glass - Mad Rush [Piano Tutorial] (Synthesia) [fIgVBRL0Jx4]-1649959360.mp4",
-		"type": "video/mp4",
-		"composer": "Philip Glass",
-		"track_name": "Mad Rush",
-		"credits": "Youtube @EdmondTHui",
-		"mapping_piano_top_y": 320,
-		"first_note_time": 0
-	},
-	{
-		"url": "https://www.videopiano.ee/test/Twin Peaks Theme – Opening – Piano tutorial [Easy Piano] [tZgIgtsi33A]-1649976932.mp4",
+		"url": "http://meedia.lan:8080/videopiano/data/video/Twin Peaks Theme – Opening – Piano tutorial [Easy Piano] [tZgIgtsi33A]-1649976932.mp4",
 		"type": "video/mp4",
 		"composer": "Twin Peaks",
 		"track_name": "Opening Theme",
 		"credits": "Youtube @Easy Piano For All",
-		"mapping_piano_top_y": 320,
+		"video_height":360,
+		"mapping_piano_top_y": 245,
+		"first_note_time": 0
+	},
+	{
+		"url": "http://meedia.lan:8080/videopiano/data/video/Hymn to the Sea - Titanic _ Synthesia Piano Tutorial [LLcLuaA9gCg]-1649982538.mp4",
+		"type": "video/mp4",
+		"composer": "Titanic",
+		"track_name": "Opening Theme",
+		"credits": "Youtube @Easy Piano For All",
+		"video_height":360,
+		"mapping_piano_top_y": 245,
 		"first_note_time": 0
 	},
 	{
