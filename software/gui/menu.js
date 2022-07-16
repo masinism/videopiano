@@ -12,7 +12,7 @@ function menuGetCurrentItem(){
 
 
   // load stuffz:
-  fetch('music/files.php?random='+new Date().getTime())
+  fetch('/music/files.php')// ?random='+new Date().getTime()
     .then(response => response.json())
     .then(data => {
       for (var key in data) {
