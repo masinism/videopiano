@@ -9,7 +9,7 @@ $out = [];
 foreach ($files as $filename) {
 
 	$o = [];
-	$o["url"] = "http://videopiano1.local:8000/music/" . $filename;
+	$o["url"] = "http://videopiano1.local:8000/music/" . $filename; 
 	
   $o["track_name"] = $filename;
 	$o["track_name"] = str_replace("neothesia/", "", $o["track_name"]);
