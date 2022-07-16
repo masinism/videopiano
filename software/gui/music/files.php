@@ -17,7 +17,7 @@ function getDir($dir, $video_height, $mapping_piano_top_y){
     $o["url"] = "http://videopiano1.local:8000/music/" . $filename; 
     
     $o["track_name"] = $filename;
-    $o["track_name"] = str_replace($dir, "", $o["track_name"]);
+    $o["track_name"] = str_replace($dir."/", "", $o["track_name"]);
     $o["track_name"] = str_replace(".mid.webm", "", $o["track_name"]);
     $o["track_name"] = str_replace("_", " ", $o["track_name"]);
   
