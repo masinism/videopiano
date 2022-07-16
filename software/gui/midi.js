@@ -123,7 +123,7 @@ function onMIDIFailure() {
 document.addEventListener('keyup', function(event) {
 
     switch(event.key){
-        case "*":  window.location.reload(); break;
+        case "*":  document.location.reload(); break;
         case "1":  gotMIDImessage({data:[144,21,125]}); break;
         case "1":  gotMIDImessage({data:[144,21,125]}); break;
         case "2":  gotMIDImessage({data:[144,22,125]}); break;
