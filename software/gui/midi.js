@@ -134,10 +134,10 @@ document.addEventListener('keyup', function(event) {
         case "Enter":  gotMIDImessage({data:[144,105,125]}); break;
 
         case "8":  gotMIDImessage({data:[144,107,125]}); break;
-        case "+":  gotMIDImessage({data:[144,107,125]}); break;
+        case "-":  gotMIDImessage({data:[144,108,125]}); break;
 
         case "9":  gotMIDImessage({data:[144,108,125]}); break;
-        case "-":  gotMIDImessage({data:[144,108,125]}); break;
+        case "+":  gotMIDImessage({data:[144,107,125]}); break;
 
        
     }
