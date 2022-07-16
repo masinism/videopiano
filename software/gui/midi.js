@@ -129,9 +129,16 @@ document.addEventListener('keyup', function(event) {
         case "4":  gotMIDImessage({data:[144,24,125]}); break;
         case "5":  gotMIDImessage({data:[144,25,125]}); break;
         case "6":  gotMIDImessage({data:[144,26,125]}); break;
+        
         case "7":  gotMIDImessage({data:[144,105,125]}); break;
+        case "Enter":  gotMIDImessage({data:[144,105,125]}); break;
+
         case "8":  gotMIDImessage({data:[144,107,125]}); break;
+        case "+":  gotMIDImessage({data:[144,107,125]}); break;
+
         case "9":  gotMIDImessage({data:[144,108,125]}); break;
+        case "-":  gotMIDImessage({data:[144,108,125]}); break;
+
        
     }
 
