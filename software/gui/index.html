@@ -243,7 +243,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 		function startMusic(){
 		
 			var d = menuGetCurrentItem();
-			if(d.type=="video/mp4"){
+			if(d.type=="video/mp4" || d.type=="video/webm"){
 				videoPlay(d);
 			} else if (d.type=="audio/midi") {
 				startSynthesia(d);
