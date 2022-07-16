@@ -18,14 +18,14 @@ function getDir($dir, $video_height, $mapping_piano_top_y){
     
     $o["track_name"] = $filename;
     $o["track_name"] = str_replace($dir, "", $o["track_name"]);
-    $o["track_name"] = str_replace(".mid.mp4", "", $o["track_name"]);
+    $o["track_name"] = str_replace(".mid.webm", "", $o["track_name"]);
     $o["track_name"] = str_replace("_", " ", $o["track_name"]);
   
     $o["type"] = "video/webm";
     $o["composer"] = "";
     $o["credits"] = "";
     $o["video_height"] = 360;
-    $o["mapping_piano_top_y"] = 245;
+    $o["mapping_piano_top_y"] = 240;
     $o["first_note_time"] = 0;
   
     $out[] = $o;
