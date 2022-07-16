@@ -275,7 +275,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 					//	syntesiaStop();
 					}
 					break;
-				case "7":
+				case "7": // enter
 					if(states.activeOutput==""){
 						startMusic();
 					} else if(states.activeOutput=="synthesia"){
@@ -284,7 +284,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 						videoStop();
 					} 
 					break;  
-				case "8":
+				case "8": // +
 					if(states.activeOutput==""){
 						menuControl("up");
 					} else if(states.activeOutput=="synthesia"){
@@ -294,7 +294,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 						videoChangeSpeed(states.currentSpeed);
 					} 
 					break;  
-				case "9":
+				case "9": // -
 					if(states.activeOutput==""){
 						menuControl("down");
 					} else if(states.activeOutput=="synthesia"){

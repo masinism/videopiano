@@ -9,7 +9,7 @@ function getDir($dir, $video_height, $mapping_piano_top_y){
 
   global $out;
 
-  $files = glob($dir.'/*.mp4');
+  $files = glob($dir.'/*.webm');
 
   foreach ($files as $filename) {
 
@@ -21,7 +21,7 @@ function getDir($dir, $video_height, $mapping_piano_top_y){
     $o["track_name"] = str_replace(".mid.mp4", "", $o["track_name"]);
     $o["track_name"] = str_replace("_", " ", $o["track_name"]);
   
-    $o["type"] = "video/mp4";
+    $o["type"] = "video/webm";
     $o["composer"] = "";
     $o["credits"] = "";
     $o["video_height"] = 360;
