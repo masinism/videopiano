@@ -9,12 +9,12 @@ $out = [];
 foreach ($files as $filename) {
 
 	$o = [];
-	$o["url"] = "http://localhost:8000/" + $filename;
+	$o["url"] = "http://localhost:8000/" . $filename;
 	
   $o["track_name"] = $filename;
 	$o["track_name"] = str_replace("neothesia/", "", $o["title"]);
-	$o["track_name"] = str_replace(".mp4", "", $o["title"]);
-	$o["track_name"] = str_replace("-", " ", $o["title"]);
+	$o["track_name"] = str_replace(".mid.mp4", "", $o["title"]);
+	$o["track_name"] = str_replace("_", " ", $o["title"]);
 
   $o["type"] = "video/mp4";
   $o["composer"] = "";
