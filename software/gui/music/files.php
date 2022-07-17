@@ -35,6 +35,7 @@ function getDir($dir, $video_height, $mapping_piano_top_y){
 }
 
 getDir("neoconvert",360,245);
+getDir("youtube",360,245);
 
 print json_encode($out, JSON_PRETTY_PRINT);
 
