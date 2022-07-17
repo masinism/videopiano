@@ -201,7 +201,7 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 
 		function startSynthesia(d){
 
-			if(states.currentSpeed <= 0.1){
+			if(states.currentSpeed <= 0.2){
 				states.currentSpeed = 0.1;
 			}
 
@@ -291,6 +291,10 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 						syntesiaFaster();
 					}  else if(states.activeOutput=="video"){
 						states.currentSpeed = states.currentSpeed+0.1;
+
+						if(states.currentSpeed>2){
+							states.currentSpeed = 2;
+						}
 						videoChangeSpeed(states.currentSpeed);
 					} 
 					break;  
@@ -301,6 +305,9 @@ document.getElementById('metadata_info_left').style.top = conf.projectionAreaTop
 						syntesiaSlower();
 					} else if(states.activeOutput=="video"){
 						states.currentSpeed = states.currentSpeed-0.1;
+						if(states.currentSpeed<0.1){
+							states.currentSpeed = 0.1;
+						}
 						videoChangeSpeed(states.currentSpeed);
 					} 
 					break;                    
